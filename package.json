@@ -1,0 +1,26 @@
+{
+  "name": "@didww/jsonapi-client",
+  "version": "0.0.1",
+  "description": "Client for requesting backend API based on JSONAPI specification",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/inflected": "^1.1.29",
+    "eslint": "^7.32.0",
+    "inflected": "^2.1.0",
+    "prettier": "^2.4.1",
+    "rollup": "^2.56.3"
+  },
+  "dependencies": {
+    "axios": "^0.21.4"
+  }
+}
