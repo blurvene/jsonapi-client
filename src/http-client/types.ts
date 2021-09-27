@@ -18,6 +18,7 @@ export type HttpClientConfig = {
 export type HttpResponse<T = any> = HttpErrorResponse | HttpSuccessResponse<T>;
 
 export enum ErrorCode {
+    Unknown = 0,
     BadRequest = 400,
     NotAuthorized = 401,
     Forbidden = 403,
