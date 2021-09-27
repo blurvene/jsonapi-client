@@ -22,15 +22,15 @@ export class JsonApiClient {
 
     constructor(private httpClient: HttpClient) {}
 
-    private sendRequest(config: CustomJsonApiConfig): Promise<JsonApiResponse> {
-        return this.httpClient.request(config).then((response: HttpResponse): JsonApiResponse => {
+    private sendRequest({ skipPrimary, ...httpConfig }: CustomJsonApiConfig): Promise<JsonApiResponse> {
+        return this.httpClient.request(httpConfig).then((response: HttpResponse): JsonApiResponse => {
             if (response.isOk) {
                 return new JsonApiSuccessResponse(response.data);
             }
 
             const jsonApiError = new JsonApiErrorResponse(response);
 
-            if (JsonApiClient.errorCallback && config.skipPrimary !== true) {
+            if (JsonApiClient.errorCallback && skipPrimary !== true) {
                 JsonApiClient.errorCallback(jsonApiError);
             }
 
