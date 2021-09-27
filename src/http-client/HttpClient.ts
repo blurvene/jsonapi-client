@@ -38,17 +38,13 @@ export class HttpClient {
     }
 
     private static handleError(error: AxiosError | Error, config: CustomConfigParams): HttpErrorResponse {
-        if (axios.isAxiosError(error) && error.response !== undefined) {
-            const httpError = new HttpErrorResponse(error.response);
+        const httpError = new HttpErrorResponse(error);
 
-            if (HttpClient.errorCallback && config.skipInterceptor !== true) {
-                HttpClient.errorCallback(httpError);
-            }
-
-            return httpError;
+        if (HttpClient.errorCallback && config.skipInterceptor !== true) {
+            HttpClient.errorCallback(httpError);
         }
 
-        throw new Error(); // TODO: Refactor it
+        return httpError;
     }
 
     request(config: HttpConfig): Promise<HttpResponse> {
