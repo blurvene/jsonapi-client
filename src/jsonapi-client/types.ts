@@ -25,6 +25,7 @@ interface CustomJsonApiConfigParams {
 export type CustomJsonApiConfig = HttpConfig & CustomJsonApiConfigParams;
 
 export interface JsonApiConfig extends CustomJsonApiConfigParams {
+    headers?: Record<string, string>,
     query?: QueryOptions;
     url?: string;
     skipInterceptor?: boolean;

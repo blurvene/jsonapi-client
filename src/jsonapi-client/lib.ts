@@ -52,10 +52,11 @@ function getRequestUrl(entity: Entity, options?: JsonApiConfig): string {
 
 export function getHttpConfig(entity: Entity, options: JsonApiConfig = {}): CustomJsonApiConfig {
     const url = getRequestUrl(entity, options);
-    const { skipInterceptor = false, skipPrimary = false, withCredentials = true } = options;
+    const { skipInterceptor = false, skipPrimary = false, withCredentials = true, headers } = options;
 
     return {
         url,
+        headers,
         data: typeof entity === 'object' ? { data: entity } : undefined,
         skipInterceptor,
         skipPrimary,
