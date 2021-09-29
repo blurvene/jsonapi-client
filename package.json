@@ -1,6 +1,6 @@
 {
   "name": "@didww/jsonapi-client",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Client for requesting backend API based on JSONAPI specification",
   "main": "./dist/index.js",
   "private": false,
