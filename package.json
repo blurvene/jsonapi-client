@@ -6,7 +6,8 @@
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "build": "rm -rf dist && rollup -c",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
